@@ -1,6 +1,8 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 
-RUN useradd -m mahi
+RUN useradd -m -s $(which bash) mahi
+# Option '-m' to create home directory see https://askubuntu.com/a/393470
+# How to set bash as shell, see comments in the same answer
 
 # Create working directory and change ownership.
 # Ownership will be preserved when mounting volume to /app
