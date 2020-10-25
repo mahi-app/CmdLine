@@ -1,0 +1,18 @@
+{
+    "name": "CmdLine dev container",
+    "dockerComposeFile": [
+        "../dev/docker-compose.yml"
+    ],
+    "service": "cmdline-dev",
+    "workspaceFolder": "/app",
+    "extensions": [
+        "ms-dotnettools.csharp",
+        "josefpihrt-vscode.roslynator",
+        "formulahendry.dotnet-test-explorer",
+        "fernandoescolar.vscode-solution-explorer",
+		"eamodio.gitlens",
+		"ms-vscode.powershell",
+		"shd101wyy.markdown-preview-enhanced"
+    ],
+    "shutdownAction": "stopCompose"
+}
