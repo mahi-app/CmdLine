@@ -16,5 +16,5 @@ As of writing these branches are available
 
 | Article | Branch |
 |---------|--------|
-| [Building a Dev Container for .NET Core](https://manfredmlange.medium.com/building-a-dev-container-for-net-core-e43a2236504f) | [article-2020-10-26](https://github.com/mahi-app/CmdLine/tree/article-2020-10-26)
-
+| [Building a Dev Container for .NET Core](https://manfredmlange.medium.com/building-a-dev-container-for-net-core-e43a2236504f) | [article-2020-10-26](https://github.com/mahi-app/CmdLine/tree/article-2020-10-26) |
+| [Dockerized SQL Server for Development](https://manfredmlange.medium.com/dockerized-sql-server-for-development-248a99c9a1a) | [article-2020-11-01](https://github.com/mahi-app/CmdLine/tree/article-2020-11-01) |
