@@ -1,4 +1,5 @@
 ﻿using System;
+using CmdLine.DataAccess;
 
 namespace CmdLine
 {
@@ -6,6 +7,8 @@ namespace CmdLine
     {
         static void Main(string[] args)
         {
+            Database.RunMigrations();
+
             Console.WriteLine("Hello World!");
         }
     }
