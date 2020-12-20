@@ -1,13 +1,22 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1
+FROM mcr.microsoft.com/dotnet/sdk:5.0.101
 
-RUN useradd -m -s $(which bash) mahi
-# Option '-m' to create home directory see https://askubuntu.com/a/393470
-# How to set bash as shell, see comments in the same answer
+# Install missing 'ps' command that some VS Code extensions depend on:
+RUN apt-get update && \
+    apt-get install -y procps
 
-# Create working directory and change ownership.
-# Ownership will be preserved when mounting volume to /app
-# See https://stackoverflow.com/a/56990338/411428
-# and https://github.com/docker/compose/issues/3270#issuecomment-543603959
-RUN mkdir /app && chown mahi:mahi /app
+RUN groupadd -g 1000 -r mahi && \
+    useradd -u 1000 -r -g mahi -m -s $(which bash) mahi
+# Option '-m' to create home directory (see https://askubuntu.com/a/393470)
+# Option '-s' to set  shell for this user (see comment in https://askubuntu.com/a/393470)
+# Option '-r' creates a system user which does not expire 
+#             (see https://linuxize.com/post/how-to-create-users-in-linux-using-the-useradd-command/)
 
-USER mahi
+# Create working directory. Ownership will be changed in entrypoint.sh which
+# executes *after* the volume has been mounted.
+RUN mkdir /app
+RUN mkdir /app/dev
+
+# Copy entrypoint script into container, make it executable, then execute it:
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
