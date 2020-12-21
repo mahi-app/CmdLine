@@ -14,7 +14,6 @@ RUN groupadd -g 1000 -r mahi && \
 # Create working directory. Ownership will be changed in entrypoint.sh which
 # executes *after* the volume has been mounted.
 RUN mkdir /app
-RUN mkdir /app/dev
 
 # Copy entrypoint script into container, make it executable, then execute it:
 COPY entrypoint.sh /entrypoint.sh
