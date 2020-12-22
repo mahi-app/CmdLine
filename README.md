@@ -19,3 +19,4 @@ As of writing these branches are available
 | [Building a Dev Container for .NET Core](https://manfredmlange.medium.com/building-a-dev-container-for-net-core-e43a2236504f) | [article-2020-10-26](https://github.com/mahi-app/CmdLine/tree/article-2020-10-26) |
 | [Dockerized SQL Server for Development](https://manfredmlange.medium.com/dockerized-sql-server-for-development-248a99c9a1a) | [article-2020-11-01](https://github.com/mahi-app/CmdLine/tree/article-2020-11-01) |
 | [Easy Schema Migrations in .NET Core](https://manfredmlange.medium.com/easy-schema-migrations-in-net-core-abd214fa054c) | [article-2020-11-15](https://github.com/mahi-app/CmdLine/tree/article-2020-11-15) |
+| [Upgrading a Dev Container to .NET 5.0](https://manfredmlange.medium.com/upgrading-a-dev-container-to-net-5-0-dfadc3cb5725?sk=2e2f8d770f85d76e6e1f25e9be8ba6dc) | [article-2020-12-22](https://github.com/mahi-app/CmdLine/tree/article-2020-12-22) |
