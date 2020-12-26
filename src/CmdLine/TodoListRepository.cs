@@ -11,17 +11,24 @@ namespace CmdLine
       }
       public Guid Save(TodoList list)
       {
-         _theList = list;
-         _theList.Id = Guid.NewGuid();
-         return _theList.Id;
+         using(var session = _sessionFactory.OpenSession())
+         {
+            var id = (Guid) session.Save(list);
+            session.Flush();
+            session.Close();
+            return id;
+         }
       }
 
       public TodoList GetById(Guid id)
       {
-         return _theList;
+         using(var session = _sessionFactory.OpenSession())
+         {
+            var list = session.Get<TodoList>(id);
+            return list;
+         }
       }
 
-      private TodoList _theList;
       private readonly ISessionFactory _sessionFactory;
    }
 }
