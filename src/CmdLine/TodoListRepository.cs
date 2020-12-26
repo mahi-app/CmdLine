@@ -1,9 +1,14 @@
 using System;
+using NHibernate;
 
 namespace CmdLine
 {
    public class TodoListRepository
    {
+      public TodoListRepository(ISessionFactory sessionFactory)
+      {
+         _sessionFactory = sessionFactory;
+      }
       public Guid Save(TodoList list)
       {
          _theList = list;
@@ -17,5 +22,6 @@ namespace CmdLine
       }
 
       private TodoList _theList;
+      private readonly ISessionFactory _sessionFactory;
    }
 }

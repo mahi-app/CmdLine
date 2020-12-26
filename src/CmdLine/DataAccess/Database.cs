@@ -1,6 +1,9 @@
 using System;
 using FluentMigrator.Runner;
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
 using Microsoft.Extensions.DependencyInjection;
+using NHibernate;
 
 namespace CmdLine.DataAccess
 {
@@ -37,6 +40,20 @@ namespace CmdLine.DataAccess
                 .AddLogging(lb => lb.AddFluentMigratorConsole())
                 // Build the service provider
                 .BuildServiceProvider(false);
+        }
+
+        public static ISessionFactory CreateSessionFactory()
+        {
+            RunMigrations();
+
+            return Fluently.Configure()
+                .Database(
+                    MsSqlConfiguration.MsSql2012.ConnectionString(ConnectionString)
+                )
+                .Mappings(m => m.FluentMappings
+                    .AddFromAssemblyOf<Database>()
+                    .Conventions.Add(FluentNHibernate.Conventions.Helpers.ForeignKey.EndsWith("Id")))
+                .BuildSessionFactory();
         }
 
         /// <summary>
