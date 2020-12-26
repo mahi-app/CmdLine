@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace CmdLine.Tests
 {
-    public class Tests
+    public class TodoListRepositoryTests
     {
         [SetUp]
         public void Setup()
@@ -10,7 +10,7 @@ namespace CmdLine.Tests
         }
 
         [Test]
-        public void Test1()
+        public void SaveRead()
         {
             Assert.Pass();
         }
