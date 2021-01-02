@@ -11,48 +11,41 @@ namespace CmdLine
       }
       public Guid Save(TodoList list)
       {
-         Guid id;
-         using (var session = _sessionFactory.OpenSession())
+         return InTx(session =>
          {
-            using (var transaction = session.BeginTransaction())
-            {
-               try
-               {
-                  id = (Guid)session.Save(list);
-                  transaction.Commit();
-               }
-               catch (Exception ex)
-               {
-                  transaction.Rollback();
-                  throw;
-               }
-            }
-            session.Close();
-         }
-         return id;
+            return (Guid)session.Save(list);
+         });
       }
 
       public TodoList GetById(Guid id)
       {
-         TodoList list;
+         return InTx(session =>
+         {
+            return session.Get<TodoList>(id);
+         });
+      }
+
+      protected T InTx<T>(Func<ISession, T> function)
+      {
          using (var session = _sessionFactory.OpenSession())
          {
-            using (var transaction = session.BeginTransaction())
+            using (var txn = session.BeginTransaction())
             {
+               T result;
                try
                {
-                  list = session.Get<TodoList>(id);
-                  transaction.Commit();
+                  result = function.Invoke(session);
+                  txn.Commit();
+                  return result;
                }
                catch (Exception ex)
                {
-                  transaction.Rollback();
+                  // TODO: exception handling including retry logic
+                  txn.Rollback();
                   throw;
                }
             }
-            session.Close();
          }
-         return list;
       }
 
       private readonly ISessionFactory _sessionFactory;
