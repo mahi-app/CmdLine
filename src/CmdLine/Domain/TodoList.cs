@@ -1,6 +1,6 @@
 using System;
 
-namespace CmdLine
+namespace CmdLine.Domain
 {
    public class TodoList
    {

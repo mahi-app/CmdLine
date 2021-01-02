@@ -1,3 +1,4 @@
+using CmdLine.Domain;
 using FluentNHibernate.Mapping;
 
 namespace CmdLine.DataAccess.Maps

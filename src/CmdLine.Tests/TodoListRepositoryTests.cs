@@ -1,4 +1,6 @@
 using CmdLine.DataAccess;
+using CmdLine.DataAccess.Repositories;
+using CmdLine.Domain;
 using NHibernate;
 using NUnit.Framework;
 
