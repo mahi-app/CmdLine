@@ -12,7 +12,7 @@ Please file issues or create pull requests (PRs) to help improve the content of 
 
 This repository is used for several articles published by https://manfredmlange.medium.com/ The articles can be used individually but were written in a particular sequence to build on each other. Branches are used for each article.
 
-As of writing these branches are available
+As of writing these articles and branches are available
 
 | Article | Branch |
 |---------|--------|
@@ -21,3 +21,4 @@ As of writing these branches are available
 | [Easy Schema Migrations in .NET Core](https://manfredmlange.medium.com/easy-schema-migrations-in-net-core-abd214fa054c) | [article-2020-11-15](https://github.com/mahi-app/CmdLine/tree/article-2020-11-15) |
 | [Upgrading a Dev Container to .NET 5.0](https://manfredmlange.medium.com/upgrading-a-dev-container-to-net-5-0-dfadc3cb5725?sk=2e2f8d770f85d76e6e1f25e9be8ba6dc) | [article-2020-12-22](https://github.com/mahi-app/CmdLine/tree/article-2020-12-22) |
 | [Easy Database Access with NHibernate in .NET 5.0](https://manfredmlange.medium.com/easy-database-access-with-nhibernate-in-net-5-0-3cc7e36510c9?sk=d83d22c7197e509193c59eafc848e18c) | [article-2020-12-27](https://github.com/mahi-app/CmdLine/tree/article-2020-12-27) |
+| [Database Transactions with NHibernate in .NET 5.0](https://manfredmlange.medium.com/database-transactions-with-nhibernate-in-net-5-0-caab8c82d62a?sk=cac595c539cff46f7e883385febb6602) | [article-2021-01-02](https://github.com/mahi-app/CmdLine/tree/article-2021-01-02) |
