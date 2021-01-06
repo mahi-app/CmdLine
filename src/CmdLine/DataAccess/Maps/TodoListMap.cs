@@ -10,8 +10,8 @@ namespace CmdLine.DataAccess.Maps
          Table("List");
 
          Id(x => x.Id);
-
          Map(x => x.Name);
+         HasMany(x => x.Items).Cascade.SaveUpdate().Not.LazyLoad();
       }
    }
 }
