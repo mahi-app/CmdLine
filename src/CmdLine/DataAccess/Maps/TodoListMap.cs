@@ -7,8 +7,6 @@ namespace CmdLine.DataAccess.Maps
    {
       public TodoListMap()
       {
-         Table("List");
-
          Id(x => x.Id);
          Map(x => x.Name);
          HasMany(x => x.Items).Cascade.SaveUpdate().Not.LazyLoad();
