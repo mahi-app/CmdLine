@@ -4,7 +4,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0.101
 RUN apt-get update && \
     apt-get install -y procps
 
-RUN groupadd -g 1000 -r mahi && \
+RUN /usr/sbin/groupadd -g 1000 -r mahi && \
     useradd -u 1000 -r -g mahi -m -s $(which bash) mahi
 # Option '-m' to create home directory (see https://askubuntu.com/a/393470)
 # Option '-s' to set  shell for this user (see comment in https://askubuntu.com/a/393470)
